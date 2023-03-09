@@ -1,5 +1,7 @@
 # money-conversor
 
+![alt text]((https://tentulogo.com/wp-content/uploads/Puma-Twitter-1.jpg))
+
 This documentation provides information about a Java project that enables users to convert currencies from one form to another. The project aims to make it easy for users to convert currencies between different countries, including Mexican peso to American dollar and other currencies.
 
 -----------------------------------------------------------------------------------------------------------------------------
