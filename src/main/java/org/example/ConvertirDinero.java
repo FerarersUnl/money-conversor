@@ -3,6 +3,7 @@ package org.example;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class ConvertirDinero extends JFrame {
     private JButton okBtn;
@@ -11,6 +12,8 @@ public class ConvertirDinero extends JFrame {
     private JLabel Error;
     private JPanel PanelConvert;
     private JComboBox opcionesBox;
+    private JLabel valorFinal;
+    private JLabel mostrarConversion;
     private JFormattedTextField newValue;
 
     public ConvertirDinero() {
@@ -21,58 +24,51 @@ public class ConvertirDinero extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
-
-        okBtn.addActionListener(new ActionListener() {
+        textField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     double value = Integer.parseInt(textField.getText());
                     int choice = opcionesBox.getSelectedIndex();
-                    Integer finalValue;
+                    Double finalValue = null;
+                    DecimalFormat df = new DecimalFormat("0.00");
                     switch (choice) {
                         case 0:
-                            // Convert to Dollars
-                            finalValue = (int) (value / 19.96);
+                            finalValue = value / 19.96;
                             break;
                         case 1:
-                            finalValue = (int) (value / 18.95);
+                            finalValue = value / 18.95;
                             break;
                         case 2:
-                            finalValue = (int) (value / 21.29);
+                            finalValue = value / 21.29;
                             break;
                         case 3:
-                            finalValue = (int) (value / 0.13);
+                            finalValue = value / 0.13;
                             break;
                         case 4:
-                            finalValue = (int) (value / 0.014);
+                            finalValue = value / 0.014;
                             break;
                         case 5:
-                            finalValue = (int) (value / 0.056);
+                            finalValue = value / 0.056;
                             break;
                         case 6:
-                            finalValue = (int) (value / 0.053);
+                            finalValue = value / 0.053;
                             break;
                         case 7:
-                            finalValue = (int) (value / 0.047);
+                            finalValue = value / 0.047;
                             break;
                         case 8:
-                            finalValue = (int) (value / 7.62);
+                            finalValue = value / 7.62;
                             break;
                         case 9:
-                            finalValue = (int) (value / 73.50);
+                            finalValue = value / 73.50;
                             break;
                     }
-
+                    mostrarConversion.setVisible(true);
+                    valorFinal.setText(df.format(finalValue));
                 } catch (Exception exception) {
                     Error.setVisible(true);
                 }
-            }
-        });
-
-        cancelarBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
             }
         });
     }
